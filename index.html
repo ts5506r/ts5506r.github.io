@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">ShopName</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Cart</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section class="product-container">
+        <div class="product-gallery">
+            <img id="main-image" src="product1.jpg" alt="Product Image">
+            <div class="thumbnail-gallery">
+                <img class="thumbnail" src="product1.jpg" alt="Thumbnail 1">
+                <img class="thumbnail" src="product2.jpg" alt="Thumbnail 2">
+                <img class="thumbnail" src="product3.jpg" alt="Thumbnail 3">
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h2>Product Title</h2>
+            <p class="price">$99.99</p>
+            <p class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet.
+            </p>
+            <div class="reviews">
+                <span>⭐⭐⭐⭐⭐ (120 Reviews)</span>
+            </div>
+            <div class="add-to-cart">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" min="1">
+                <button id="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ShopName. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
