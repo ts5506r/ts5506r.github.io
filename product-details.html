@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">ShopName</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Details Section -->
+    <section class="product-details">
+        <h2 id="product-title">Loading...</h2>
+        <img id="product-image" src="" alt="Product Image">
+        <p class="price" id="product-price">$0.00</p>
+        <p class="description" id="product-description">Loading...</p>
+        <button>Add to Cart</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ShopName. All rights reserved.</p>
+    </footer>
+    
+
+<script>
+    // Function to get product ID from URL
+    function getProductID() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('product_id');
+    }
+
+    // Load the product details from JSON file
+    function loadProductDetails() {
+        const productId = getProductID();
+
+        fetch('products.json')
+            .then(response => response.json())
+            .then(products => {
+                const product = products.find(p => p.id == productId);
+
+                if (product) {
+                    document.getElementById('product-title').textContent = product.title;
+                    document.getElementById('product-price').textContent = product.price;
+                    document.getElementById('product-description').textContent = product.description;
+                    document.getElementById('product-image').src = product.image;
+
+                    // Add event listener to the "Add to Cart" button
+                    document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+                        addToCart(product);
+                    });
+                } else {
+                    document.getElementById('product-title').textContent = 'Product not found';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading product data:', error);
+            });
+    }
+
+    // Add product to localStorage (cart)
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if product is already in the cart
+        const existingProduct = cart.find(item => item.id === product.id);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;  // Increment quantity if already in cart
+        } else {
+            product.quantity = 1;  // Set initial quantity
+            cart.push(product);  // Add new product to cart
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));  // Save cart to localStorage
+        alert(`${product.title} has been added to your cart!`);
+    }
+
+    // Call the function to load product details on page load
+    window.onload = loadProductDetails;
+</script>
+
+    
+</body>
+</html>

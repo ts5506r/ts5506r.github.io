@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Product Page</title>
+    <title>Shop - E-Commerce Product Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,32 +23,30 @@
         </div>
     </header>
 
-    <!-- Product Section -->
-    <section class="product-container">
-        <div class="product-gallery">
-            <img id="main-image" src="product1.jpg" alt="McLaren SLR 5">
-            <div class="thumbnail-gallery">
-                <img class="thumbnail" src="images/product1.jpg" alt="Thumbnail 1">
-                <img class="thumbnail" src="images/product2.jpg" alt="Thumbnail 2">
-                <img class="thumbnail" src="images/product3.jpg" alt="Thumbnail 3">
-            </div>
+    <!-- Product Grid Section -->
+    <section class="product-grid">
+        <div class="product-card" data-product-id="1">
+            <img src="images/product1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p class="price">$99.99</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (120 reviews)</div>
         </div>
 
-        <div class="product-details">
-            <h2>Sports car red</h2>
-            <p class="price">£9999.99</p>
-            <p class="description">
-                Car red and fast
-            </p>
-            <div class="reviews">
-                <span>⭐⭐⭐⭐⭐ (120 Reviews)</span>
-            </div>
-            <div class="add-to-cart">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" value="1" min="1">
-                <button id="add-to-cart-btn">Add to Cart</button>
-            </div>
+        <div class="product-card" data-product-id="2">
+            <img src="images/product2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p class="price">$49.99</p>
+            <div class="rating">⭐⭐⭐⭐ (80 reviews)</div>
         </div>
+
+        <div class="product-card" data-product-id="3">
+            <img src="images/product3.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p class="price">$29.99</p>
+            <div class="rating">⭐⭐⭐⭐⭐ (200 reviews)</div>
+        </div>
+
+        <!-- Add more products as needed -->
     </section>
 
     <!-- Footer -->

@@ -1,10 +1,7 @@
-// Image thumbnail click functionality
-const thumbnails = document.querySelectorAll('.thumbnail');
-const mainImage = document.getElementById('main-image');
-
-thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('click', function() {
-        mainImage.src = this.src;
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const productId = this.getAttribute('data-product-id');
+        window.location.href = `product-details.html?product_id=${productId}`;
     });
 });
 
